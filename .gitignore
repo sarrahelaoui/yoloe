@@ -1,0 +1,6 @@
+*.pt
+backend/mobileclip_blt.ts
+__pycache__/
+venv/
+.env
+node_modules/
