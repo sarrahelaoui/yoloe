@@ -1,85 +1,36 @@
 {
   "summary": {
-    "n_images": 8,
+    "n_images": 2,
     "n_total_in_folder": 174,
     "skip": 0,
     "classes": [
-      "car",
-      "truck"
+      "person"
     ],
     "imgsz": 640,
     "batch_size": 8,
-    "total_time_sec": 3.23,
-    "avg_time_sec": 0.4037,
-    "total_detections": 32,
-    "peak_ram_mb": 928.0,
+    "total_time_sec": 0.572,
+    "avg_time_sec": 0.286,
+    "total_detections": 4,
+    "peak_ram_mb": 574.54,
     "peak_gpu_mb": null,
     "device": "cpu"
   },
   "results": [
     {
-      "image": "Capture d'\u00e9cran 2026-07-20 231836.png",
-      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\Capture d'\u00e9cran 2026-07-20 231836.png",
-      "time_sec": 0.3847,
-      "ram_delta_mb": -3.24,
+      "image": "image_4.jpg",
+      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\image_4.jpg",
+      "time_sec": 0.2574,
+      "ram_delta_mb": -227.8,
       "gpu_delta_mb": null,
-      "detections": 1
+      "detections": 2
     },
     {
-      "image": "Capture d'\u00e9cran 2026-07-20 231849.png",
-      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\Capture d'\u00e9cran 2026-07-20 231849.png",
-      "time_sec": 0.3847,
-      "ram_delta_mb": -3.24,
+      "image": "image_6.jpg",
+      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\image_6.jpg",
+      "time_sec": 0.2574,
+      "ram_delta_mb": -227.8,
       "gpu_delta_mb": null,
-      "detections": 9
-    },
-    {
-      "image": "Capture d'\u00e9cran 2026-07-20 231857.png",
-      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\Capture d'\u00e9cran 2026-07-20 231857.png",
-      "time_sec": 0.3847,
-      "ram_delta_mb": -3.24,
-      "gpu_delta_mb": null,
-      "detections": 1
-    },
-    {
-      "image": "Capture d'\u00e9cran 2026-07-20 231901.png",
-      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\Capture d'\u00e9cran 2026-07-20 231901.png",
-      "time_sec": 0.3847,
-      "ram_delta_mb": -3.24,
-      "gpu_delta_mb": null,
-      "detections": 1
-    },
-    {
-      "image": "Capture d'\u00e9cran 2026-07-20 231906.png",
-      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\Capture d'\u00e9cran 2026-07-20 231906.png",
-      "time_sec": 0.3847,
-      "ram_delta_mb": -3.24,
-      "gpu_delta_mb": null,
-      "detections": 3
-    },
-    {
-      "image": "Capture d'\u00e9cran 2026-07-20 231915.png",
-      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\Capture d'\u00e9cran 2026-07-20 231915.png",
-      "time_sec": 0.3847,
-      "ram_delta_mb": -3.24,
-      "gpu_delta_mb": null,
-      "detections": 10
-    },
-    {
-      "image": "Capture d'\u00e9cran 2026-07-20 231947.png",
-      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\Capture d'\u00e9cran 2026-07-20 231947.png",
-      "time_sec": 0.3847,
-      "ram_delta_mb": -3.24,
-      "gpu_delta_mb": null,
-      "detections": 4
-    },
-    {
-      "image": "Capture d'\u00e9cran 2026-07-20 232030.png",
-      "output": "C:\\Users\\MSI\\Downloads\\yolo_visual_app\\yolo_visual_app\\backend\\outputs\\Capture d'\u00e9cran 2026-07-20 232030.png",
-      "time_sec": 0.3847,
-      "ram_delta_mb": -3.24,
-      "gpu_delta_mb": null,
-      "detections": 3
+      "detections": 2
     }
   ]
 }

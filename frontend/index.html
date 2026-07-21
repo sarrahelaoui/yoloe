@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> YOLOE</title>
+<title>VISIONBENCH — YOLOE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -11,9 +11,10 @@
 <body>
 
 <header class="topbar">
-  <h1>YoloE project</h1>
+  <h1>VISIONBENCH</h1>
   <div class="status-cluster">
-   
+    <span class="pill"><span class="dot dot-idle" id="apiDot"></span><span id="apiLabel">API ?</span></span>
+    <span class="pill"><span class="dot dot-idle" id="statusDot"></span><span id="statusLabel">READY</span></span>
   </div>
 </header>
 
@@ -21,7 +22,7 @@
 
   <!-- ============ STEP 1: CLASSES ============ -->
   <section class="panel">
-    <h2>1.Classes à détecter</h2>
+    <h2>1. Classes à détecter</h2>
     <div class="tag-input-wrap">
       <div class="tag-list" id="tagList"></div>
       <input type="text" id="classInput" class="text-input mono" placeholder="ex: forklift, puis Entrée">
@@ -67,9 +68,40 @@
   <!-- ============ RESULTS ============ -->
   <section class="panel panel-results">
     <h2>Résultats</h2>
-    <p class="mono stats-line" id="statsLine">—</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <span class="stat-label">Images</span>
+        <span class="stat-value mono" id="statImages">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Temps total</span>
+        <span class="stat-value mono" id="statTotalTime">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Temps / image</span>
+        <span class="stat-value mono" id="statAvgTime">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Détections</span>
+        <span class="stat-value mono" id="statDetections">—</span>
+      </div>
+      <div class="stat-card stat-card-wide">
+        <span class="stat-label">RAM pic</span>
+        <span class="stat-value mono" id="statRam">—</span>
+      </div>
+    </div>
+
     <div class="gallery" id="gallery">
       <div class="empty-state">Aucun résultat pour l'instant.</div>
+    </div>
+
+    <div class="log-head">Journal détaillé (temps + mémoire par image)</div>
+    <div class="log-table" id="logTable">
+      <div class="log-row log-row-head">
+        <span>Image</span><span>Temps</span><span>RAM</span><span>Objets</span>
+      </div>
+      <div class="empty-state">—</div>
     </div>
   </section>
 

@@ -199,18 +199,37 @@ runBtn.addEventListener("click", async () => {
 });
 
 // ---------- Render results ----------
+state.allResults = [];
+
 function renderResults(data, mode) {
   const { summary, results } = data;
-  document.getElementById("statsLine").textContent =
-    `${summary.n_images} image(s) · ${summary.total_time_sec}s total · ${summary.avg_time_sec}s/image · ` +
-    `${summary.total_detections} détection(s) · ${summary.peak_ram_mb}MB RAM` +
-    (summary.peak_gpu_mb ? ` · GPU ${summary.peak_gpu_mb}MB` : ` · ${summary.device.toUpperCase()}`);
+
+  if (mode === "replace") state.allResults = [];
+  state.allResults.push(...results);
+
+  // recompute cumulative totals across everything shown so far
+  const totalImages = state.allResults.length;
+  const totalTime = state.allResults.reduce((s, r) => s + r.time_sec, 0);
+  const totalDet = state.allResults.reduce((s, r) => s + r.detections, 0);
+
+  document.getElementById("statImages").textContent = totalImages;
+  document.getElementById("statTotalTime").textContent = totalTime.toFixed(2) + "s";
+  document.getElementById("statAvgTime").textContent = (totalImages ? totalTime / totalImages : 0).toFixed(3) + "s";
+  document.getElementById("statDetections").textContent = totalDet;
+  document.getElementById("statRam").textContent =
+    summary.peak_ram_mb + " MB" + (summary.peak_gpu_mb ? ` · GPU ${summary.peak_gpu_mb} MB` : ` · ${summary.device.toUpperCase()}`);
 
   const gallery = document.getElementById("gallery");
-  if (mode === "replace") { gallery.innerHTML = ""; state.galleryTotal = 0; }
-  else { const ph = gallery.querySelector(".empty-state"); if (ph) ph.remove(); }
+  const logTable = document.getElementById("logTable");
 
-  state.galleryTotal += results.length;
+  if (mode === "replace") {
+    gallery.innerHTML = "";
+    logTable.querySelectorAll(".log-row:not(.log-row-head)").forEach(n => n.remove());
+  } else {
+    const ph = gallery.querySelector(".empty-state");
+    if (ph) ph.remove();
+  }
+  logTable.querySelectorAll(".empty-state").forEach(n => n.remove());
 
   results.forEach((r) => {
     const item = document.createElement("div");
@@ -220,5 +239,15 @@ function renderResults(data, mode) {
       <span class="badge">${r.detections} obj · ${r.time_sec}s</span>
     `;
     gallery.appendChild(item);
+
+    const row = document.createElement("div");
+    row.className = "log-row";
+    row.innerHTML = `
+      <span title="${r.image}">${r.image}</span>
+      <span>${r.time_sec}s</span>
+      <span>${r.ram_delta_mb}MB</span>
+      <span>${r.detections}</span>
+    `;
+    logTable.appendChild(row);
   });
 }
